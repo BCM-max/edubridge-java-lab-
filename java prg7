@@ -1,0 +1,58 @@
+class InternetPlan {
+    String planName;
+    int data; // in GB
+    int validity; // in days
+    int price;
+
+    // 1. Default Constructor
+    InternetPlan() {
+        this("Basic Plan", 1, 28, 199); // calls 4-parameter constructor
+        System.out.println("Default constructor called");
+    }
+
+    // 2. Constructor with planName and data
+    InternetPlan(String planName, int data) {
+        this(planName, data, 28, 299); // calls 4-parameter constructor
+        System.out.println("2-param constructor called");
+    }
+
+    // 3. Constructor with planName, data, validity
+    InternetPlan(String planName, int data, int validity) {
+        this(planName, data, validity, 399); // calls 4-parameter constructor
+        System.out.println("3-param constructor called");
+    }
+
+    // 4. Main Constructor with all fields
+    InternetPlan(String planName, int data, int validity, int price) {
+        this.planName = planName;
+        this.data = data;
+        this.validity = validity;
+        this.price = price;
+        System.out.println("4-param constructor called");
+    }
+
+    void display() {
+        System.out.println(planName + " -> " + data + "GB/day, " + validity + " Days, Rs." + price);
+        System.out.println();
+    }
+}
+
+class InternetPlanDemo {
+    public static void main(String[] args) {
+        System.out.println("--- Creating Plan 1 ---");
+        InternetPlan p1 = new InternetPlan();
+        p1.display();
+
+        System.out.println("--- Creating Plan 2 ---");
+        InternetPlan p2 = new InternetPlan("Unlimited", 2);
+        p2.display();
+
+        System.out.println("--- Creating Plan 3 ---");
+        InternetPlan p3 = new InternetPlan("Super Saver", 3, 84);
+        p3.display();
+
+        System.out.println("--- Creating Plan 4 ---");
+        InternetPlan p4 = new InternetPlan("Premium", 5, 365, 2999);
+        p4.display();
+    }
+}

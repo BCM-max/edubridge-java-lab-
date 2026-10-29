@@ -1,0 +1,30 @@
+class Point {
+    int x;
+    int y;
+
+    // Constructor using this keyword
+    Point(int x, int y) {
+        this.x = x;  // this.x means field of class, x means parameter
+        this.y = y;
+    }
+
+    void display() {
+        System.out.println("Point ( " + x + " , " + y + " )");
+    }
+}
+
+class PointDemo {
+    public static void main(String[] args) {
+        // Creating first point
+        Point p1 = new Point(10, 20);
+        p1.display();
+
+        // Creating second point
+        Point p2 = new Point(5, 15);
+        p2.display();
+
+        // Creating third point
+        Point p3 = new Point(30, 40);
+        p3.display();
+    }
+}

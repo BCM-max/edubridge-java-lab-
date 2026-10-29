@@ -1,0 +1,48 @@
+class BankAccount {
+    String account_holder_name;
+    double balance;
+
+    // Constructor to set name and initial balance
+    BankAccount(String name, double bal) {
+        account_holder_name = name;
+        balance = bal;
+    }
+
+    void Deposit(double amount) {
+        balance = balance + amount;
+        System.out.println(amount + " Deposited. New Balance: " + balance);
+    }
+
+    void Withdraw(double amount) {
+        if (amount <= balance) {
+            balance = balance - amount;
+            System.out.println(amount + " Withdrawn. Remaining Balance: " + balance);
+        } else {
+            System.out.println("Insufficient Balance! Cannot withdraw " + amount);
+        }
+    }
+
+    void CheckBalance() {
+        System.out.println("Account Holder: " + account_holder_name);
+        System.out.println("Current Balance: " + balance);
+    }
+}
+
+class BankAccountDemo {
+    public static void main(String[] args) {
+        // Creating object of BankAccount
+        BankAccount acc1 = new BankAccount("Amit", 5000);
+
+        System.out.println("--- Initial Details ---");
+        acc1.CheckBalance();
+
+        System.out.println("\n--- After Deposit ---");
+        acc1.Deposit(2000);
+
+        System.out.println("\n--- After Withdraw ---");
+        acc1.Withdraw(1000);
+
+        System.out.println("\n--- Final Details ---");
+        acc1.CheckBalance();
+    }
+}

@@ -1,0 +1,58 @@
+class Time {
+    int hours;
+    int minutes;
+    int seconds;
+
+    // 1. Default Constructor
+    Time() {
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+    }
+
+    // 2. Constructor with only seconds
+    Time(int s) {
+        seconds = s;
+    }
+
+    // 3. Constructor with minutes and seconds
+    Time(int m, int s) {
+        minutes = m;
+        seconds = s;
+    }
+
+    // 4. Constructor with hours, minutes and seconds
+    Time(int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+    }
+
+    void display() {
+        System.out.println(hours + " Hours : " + minutes + " Minutes : " + seconds + " Seconds");
+    }
+}
+
+class ConstructorOverloading {
+    public static void main(String[] args) {
+        // Calls Constructor 1
+        Time t1 = new Time();
+        System.out.print("t1 - ");
+        t1.display();
+
+        // Calls Constructor 2 - only seconds
+        Time t2 = new Time(5000);
+        System.out.print("t2 - ");
+        t2.display();
+
+        // Calls Constructor 3 - minutes, seconds
+        Time t3 = new Time(30, 45);
+        System.out.print("t3 - ");
+        t3.display();
+
+        // Calls Constructor 4 - hours, minutes, seconds
+        Time t4 = new Time(2, 30, 45);
+        System.out.print("t4 - ");
+        t4.display();
+    }
+}

@@ -1,0 +1,49 @@
+class LibraryBook {
+    String title;
+    String author;
+    int price;
+
+    // Static variable - same for all objects
+    static int bookCount = 0;
+
+    // Constructor
+    LibraryBook(String title, String author, int price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        bookCount++; // increase count for every new book
+    }
+
+    void display() {
+        System.out.println(title + " by " + author + " - Rs." + price);
+    }
+
+    // Static method - can be called without object
+    static void ShowTotalBooks() {
+        System.out.println("Total Books in Library: " + bookCount);
+    }
+}
+
+class LibraryBookDemo {
+    public static void main(String[] args) {
+        System.out.println("--- Adding Books ---");
+
+        LibraryBook b1 = new LibraryBook("Java Basics", "James Gosling", 500);
+        b1.display();
+
+        LibraryBook b2 = new LibraryBook("Python Guide", "Guido van Rossum", 600);
+        b2.display();
+
+        LibraryBook b3 = new LibraryBook("C++ Primer", "Bjarne Stroustrup", 700);
+        b3.display();
+
+        System.out.println();
+
+        // Calling static method - 2 ways
+        // Way 1: Using class name (Recommended)
+        LibraryBook.ShowTotalBooks();
+
+        // Way 2: Using object (also works but not recommended)
+        // b1.ShowTotalBooks();
+    }
+}

@@ -1,0 +1,33 @@
+class Rectangle {
+    int length;
+    int breadth;
+
+    void CalculateArea() {
+        int area = length * breadth;
+        System.out.println("Area of Rectangle: " + area);
+    }
+
+    void display() {
+        System.out.println("Length: " + length + " Breadth: " + breadth);
+    }
+}
+
+sclass RectangleDemo {
+    public static void main(String[] args) {
+        // First object
+        Rectangle r1 = new Rectangle();
+        r1.length = 10;
+        r1.breadth = 5;
+        r1.display();
+        r1.CalculateArea();
+
+        System.out.println();
+
+        // Second object - same class, different values
+        Rectangle r2 = new Rectangle();
+        r2.length = 20;
+        r2.breadth = 8;
+        r2.display();
+        r2.CalculateArea();
+    }
+}

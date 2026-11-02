@@ -1,0 +1,25 @@
+class Student3 {
+    int marks;
+
+    Student3(int marks) {
+        this.marks = marks;
+    }
+}
+
+public class Main3 {
+    static void change(int x, Student3 s) {
+        x = 100;
+        s.marks = 95;
+        s = new Student3(50);
+    }
+
+    public static void main(String[] args) {
+        int n = 20;
+        Student3 st = new Student3(60);
+
+        change(n, st);
+
+        System.out.println(n);
+        System.out.println(st.marks);
+    }
+}

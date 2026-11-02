@@ -1,0 +1,62 @@
+class Employee8 {
+    int empId;
+    String name;
+    double basicSalary;
+
+    Employee8(int id, String n, double basic) {
+        empId = id;
+        name = n;
+        basicSalary = basic;
+    }
+
+    public void calculateSalary() {
+        System.out.println(name + "'s Basic Salary: " + basicSalary);
+    }
+}
+
+class PermanentEmployee8 extends Employee8 {
+    double allowance;
+    double bonus;
+
+    PermanentEmployee8(int id, String n, double basic, double a, double b) {
+        super(id, n, basic);
+        allowance = a;
+        bonus = b;
+    }
+
+    @Override
+    public void calculateSalary() {
+        double total = basicSalary + allowance + bonus;
+        System.out.println("Permanent " + name + "'s Total Salary: " + total);
+    }
+}
+
+class ContractEmployee8 extends Employee8 {
+    int hoursWorked;
+    double hourlyRate;
+
+    ContractEmployee8(int id, String n, double basic, int hours, double rate) {
+        super(id, n, basic);
+        hoursWorked = hours;
+        hourlyRate = rate;
+    }
+
+    @Override
+    public void calculateSalary() {
+        double total = basicSalary + (hoursWorked * hourlyRate);
+        System.out.println("Contract " + name + "'s Total Salary: " + total);
+    }
+}
+
+public class Main8 {
+    public static void main(String[] args) {
+        Employee8[] empArray = {
+            new PermanentEmployee8(1, "Alice", 50000, 10000, 5000),
+            new ContractEmployee8(2, "Bob", 30000, 50, 100)
+        };
+
+        for (Employee8 e : empArray) {
+            e.calculateSalary();
+        }
+    }
+}

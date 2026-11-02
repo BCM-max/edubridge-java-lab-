@@ -1,0 +1,27 @@
+class Calculator {
+    public int calculate(int a, int b) {
+        return a + b;
+    }
+
+    public double calculate(double a, double b) {
+        return a * b;
+    }
+
+    public int calculate(int a, int b, int c) {
+        return Math.max(a, Math.max(b, c));
+    }
+
+    public double calculate(int a, double b) {
+        return a - b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("Sum: " + calc.calculate(5, 10));
+        System.out.println("Product: " + calc.calculate(5.5, 2.0));
+        System.out.println("Largest: " + calc.calculate(10, 20, 15));
+        System.out.println("Difference: " + calc.calculate(10, 4.5));
+    }
+}

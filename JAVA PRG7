@@ -1,0 +1,26 @@
+class Counter7 {
+    static int count = 0;
+    int id;
+
+    static {
+        System.out.println("Static block");
+    }
+
+    {
+        count++;
+        id = count;
+        System.out.println("Instance block: " + id);
+    }
+
+    Counter7() {
+        System.out.println("Constructor: " + id);
+    }
+}
+
+public class Main7 {
+    public static void main(String[] args) {
+        Counter7 c1 = new Counter7();
+        Counter7 c2 = new Counter7();
+        System.out.println(Counter7.count);
+    }
+}

@@ -1,0 +1,78 @@
+abstract class Person14 {
+    private String name;
+    private int age;
+    public static int totalPeople = 0;
+    public final String INSTITUTION = "Tech University";
+
+    Person14(String name, int age) {
+        this.name = name;
+        this.age = age;
+        totalPeople++;
+    }
+
+    public String getName() { return name; }
+    public int getAge() { return age; }
+
+    abstract void displayDetails();
+    
+    void displayDetails(String prefix) {
+        System.out.print(prefix + " ");
+        displayDetails();
+    }
+}
+
+class Student14 extends Person14 {
+    private String usn;
+    Student14(String name, int age, String usn) {
+        super(name, age);
+        this.usn = usn;
+    }
+    @Override
+    void displayDetails() {
+        System.out.println("Student: " + getName() + " (" + getAge() + "), USN: " + usn);
+    }
+}
+
+class Faculty14 extends Person14 {
+    private String subject;
+    class Department {
+        String deptName = "General Sciences";
+        void info() { System.out.println("Dept: " + deptName); }
+    }
+    
+    Faculty14(String name, int age, String subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+    @Override
+    void displayDetails() {
+        System.out.println("Faculty: " + getName() + " (" + getAge() + "), Sub: " + subject);
+    }
+}
+
+class Administrator14 extends Person14 {
+    private String role;
+    Administrator14(String name, int age, String role) {
+        super(name, age);
+        this.role = role;
+    }
+    @Override
+    void displayDetails() {
+        System.out.println("Admin: " + getName() + " (" + getAge() + "), Role: " + role);
+    }
+}
+
+public class Main14 {
+    public static void main(String[] args) {
+        Person14[] people = {
+            new Student14("Alice", 20, "USN01"),
+            new Faculty14("Dr. Bob", 45, "Physics"),
+            new Administrator14("Eve", 35, "Registrar")
+        };
+
+        for (Person14 p : people) {
+            p.displayDetails("INFO ->");
+        }
+        System.out.println("Total People Created: " + Person14.totalPeople);
+    }
+}

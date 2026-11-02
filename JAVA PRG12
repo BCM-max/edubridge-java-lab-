@@ -1,0 +1,38 @@
+class Shape12 {
+    void area() {
+        System.out.println("Undefined shape area.");
+    }
+}
+
+class Circle12 extends Shape12 {
+    double radius = 5.0;
+    @Override
+    void area() {
+        System.out.println("Circle area: " + (Math.PI * radius * radius));
+    }
+}
+
+class Rectangle12 extends Shape12 {
+    double l = 5.0, w = 10.0;
+    @Override
+    void area() {
+        System.out.println("Rectangle area: " + (l * w));
+    }
+}
+
+class Triangle12 extends Shape12 {
+    double b = 6.0, h = 4.0;
+    @Override
+    void area() {
+        System.out.println("Triangle area: " + (0.5 * b * h));
+    }
+}
+
+public class Main12 {
+    public static void main(String[] args) {
+        Shape12[] shapes = {new Circle12(), new Rectangle12(), new Triangle12()};
+        for (Shape12 s : shapes) {
+            s.area();
+        }
+    }
+}

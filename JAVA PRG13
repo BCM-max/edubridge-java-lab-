@@ -1,0 +1,34 @@
+class Payment13 {
+    double calculateAmount(double amount) {
+        return amount;
+    }
+    
+    double calculateAmount(double amount, double discountPercentage) {
+        return amount - (amount * (discountPercentage / 100));
+    }
+}
+
+class CardPayment13 extends Payment13 {
+    @Override
+    double calculateAmount(double amount) {
+        return amount + (amount * 0.02); 
+    }
+}
+
+class UPIPayment13 extends Payment13 {
+    @Override
+    double calculateAmount(double amount) {
+        return amount; 
+    }
+}
+
+public class Main13 {
+    public static void main(String[] args) {
+        Payment13 p1 = new CardPayment13();
+        Payment13 p2 = new UPIPayment13();
+
+        System.out.println("Card: " + p1.calculateAmount(100)); 
+        System.out.println("UPI: " + p2.calculateAmount(100)); 
+        System.out.println("Discounted Base: " + p1.calculateAmount(100, 10));
+    }
+}

@@ -1,0 +1,52 @@
+class Complex {
+    double real;
+    double imaginary;
+
+    Complex(double r, double i) {
+        real = r;
+        imaginary = i;
+    }
+
+    public Complex add(Complex c) {
+        return new Complex(this.real + c.real, this.imaginary + c.imaginary);
+    }
+
+    public Complex multiply(Complex c) {
+        double r = (this.real * c.real) - (this.imaginary * c.imaginary);
+        double i = (this.real * c.imaginary) + (this.imaginary * c.real);
+        return new Complex(r, i);
+    }
+
+    public int compareMagnitude(Complex c) {
+        double mag1 = Math.sqrt(real * real + imaginary * imaginary);
+        double mag2 = Math.sqrt(c.real * c.real + c.imaginary * c.imaginary);
+        return Double.compare(mag1, mag2);
+    }
+
+    public Complex copy() {
+        return new Complex(this.real, this.imaginary);
+    }
+
+    public void display() {
+        System.out.println(real + " + " + imaginary + "i");
+    }
+}
+
+public class Main2 {
+    public static void main(String[] args) {
+        Complex c1 = new Complex(3, 4);
+        Complex c2 = new Complex(1, 2);
+
+        System.out.print("C1: "); c1.display();
+        System.out.print("C2: "); c2.display();
+        
+        System.out.print("Sum: "); c1.add(c2).display();
+        System.out.print("Product: "); c1.multiply(c2).display();
+        System.out.println("Magnitude Comparison (C1 vs C2): " + c1.compareMagnitude(c2));
+
+        Complex c3 = c1.copy();
+        c3.real = 100;
+        System.out.print("Modified Copy: "); c3.display();
+        System.out.print("Original C1 unchanged: "); c1.display();
+    }
+}

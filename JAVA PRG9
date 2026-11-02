@@ -1,0 +1,33 @@
+class Vehicle9 {
+    String brand;
+
+    Vehicle9(String brand) {
+        this.brand = brand;
+    }
+
+    void display() {
+        System.out.println("Parent Brand: " + brand);
+    }
+}
+
+class Car9 extends Vehicle9 {
+    String brand;
+
+    Car9(String parentBrand, String childBrand) {
+        super(parentBrand);
+        this.brand = childBrand;
+    }
+
+    @Override
+    void display() {
+        super.display();
+        System.out.println("Child Brand: " + brand);
+    }
+}
+
+public class Main9 {
+    public static void main(String[] args) {
+        Car9 c = new Car9("Ford", "Mustang");
+        c.display();
+    }
+}

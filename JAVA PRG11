@@ -1,0 +1,23 @@
+class A11 {
+    A11(int val) { System.out.println("A constructor: " + val); }
+}
+
+class B11 extends A11 {
+    B11(int val) {
+        super(val + 1);
+        System.out.println("B constructor: " + val);
+    }
+}
+
+class C11 extends B11 {
+    C11(int val) {
+        super(val + 1);
+        System.out.println("C constructor: " + val);
+    }
+}
+
+public class Main11 {
+    public static void main(String[] args) {
+        C11 obj = new C11(10);
+    }
+}

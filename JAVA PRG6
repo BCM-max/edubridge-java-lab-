@@ -1,0 +1,33 @@
+class University6 {
+    String uniName = "Global Tech";
+
+    static class Department {
+        String deptName;
+        Department(String name) { deptName = name; }
+        void display() { System.out.println("Department: " + deptName); }
+    }
+
+    class Faculty {
+        String name, designation;
+        Faculty(String n, String d) { name = n; designation = d; }
+        void display() { 
+            System.out.println("Faculty: " + name + ", " + designation + " at " + uniName); 
+        }
+    }
+
+    void displayInfo() {
+        System.out.println("University Name: " + uniName);
+    }
+}
+
+public class Main6 {
+    public static void main(String[] args) {
+        University6 u = new University6();
+        University6.Department d = new University6.Department("Computer Science");
+        University6.Faculty f = u.new Faculty("Dr. Smith", "Professor");
+        
+        u.displayInfo();
+        d.display();
+        f.display();
+    }
+}

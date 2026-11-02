@@ -1,0 +1,65 @@
+class ResultSummary4 {
+    int total;
+    double average;
+    ResultSummary4(int t, double a) {
+        total = t;
+        average = a;
+    }
+}
+
+class Student4 {
+    private String usn;
+    private String name;
+    private int[] marks = new int[3];
+    static int studentCount = 0;
+    final int MAX_MARKS = 100;
+
+    public Student4(String usn, String name) {
+        this.usn = usn;
+        this.name = name;
+        studentCount++;
+    }
+
+    public void setMarks(int m1, int m2, int m3) {
+        if (isValid(m1) && isValid(m2) && isValid(m3)) {
+            marks[0] = m1; marks[1] = m2; marks[2] = m3;
+        } else {
+            System.out.println("Invalid marks entered.");
+        }
+    }
+
+    private boolean isValid(int m) {
+        return m >= 0 && m <= MAX_MARKS;
+    }
+
+    public int getTotal() {
+        return marks[0] + marks[1] + marks[2];
+    }
+
+    public double getAverage() {
+        return getTotal() / 3.0;
+    }
+
+    public ResultSummary4 generateResult() {
+        return new ResultSummary4(getTotal(), getAverage());
+    }
+
+    public void display() {
+        System.out.println("USN: " + usn + ", Name: " + name);
+    }
+
+    public void display(boolean showResult) {
+        display();
+        if (showResult) {
+            System.out.println("Total: " + getTotal() + ", Average: " + getAverage());
+        }
+    }
+}
+
+public class Main4 {
+    public static void main(String[] args) {
+        Student4 s = new Student4("USN001", "Alice");
+        s.setMarks(85, 90, 80);
+        s.display(true);
+    }
+}
